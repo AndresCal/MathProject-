@@ -1,43 +1,43 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-//#include "vec3.h"
-//
-//using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-//
-//namespace Microsoft
-//{
-//	namespace VisualStudio
-//	{
-//		namespace CppUnitTestFramework
-//		{
-//			template<>
-//			static std::wstring ToString<cgmath::vec3>(const cgmath::vec3& v)
-//			{
-//				return L"(" + std::to_wstring(v.x) + L", " + std::to_wstring(v.y) + L", " + std::to_wstring(v.z) + L")";
-//			}
-//		}
-//	}
-//}
-//
-//namespace MathTest
-//{
-//	TEST_CLASS(vec3_test)
-//	{
-//	public:
-//
-//		TEST_METHOD(ConstructorTest)
-//		{
-//			cgmath::vec3 a;
-//			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 b(2.0f, -4.0f, 29.0f);
-//			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-4.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(29.0f, b.z, std::numeric_limits<float>::epsilon());
-//		}
+#include "vec3.h"
+
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+namespace Microsoft
+{
+	namespace VisualStudio
+	{
+		namespace CppUnitTestFramework
+		{
+			template<>
+			static std::wstring ToString<cgmath::vec3>(const cgmath::vec3& v)
+			{
+				return L"(" + std::to_wstring(v.x) + L", " + std::to_wstring(v.y) + L", " + std::to_wstring(v.z) + L")";
+			}
+		}
+	}
+}
+
+namespace MathTest
+{
+	TEST_CLASS(vec3_test)
+	{
+	public:
+
+		TEST_METHOD(ConstructorTest)
+		{
+			cgmath::vec3 a;
+			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 b(2.0f, -4.0f, 29.0f);
+			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-4.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(29.0f, b.z, std::numeric_limits<float>::epsilon());
+		}
 //
 //		TEST_METHOD(IndexTest)
 //		{
@@ -65,107 +65,107 @@
 //			Assert::AreEqual(-6.0f, b[1], std::numeric_limits<float>::epsilon());
 //			Assert::AreEqual(2.5f, b[2], std::numeric_limits<float>::epsilon());
 //		}
-//
-//		TEST_METHOD(TimesEqualsTest)
-//		{
-//			cgmath::vec3 a;
-//			a *= 5.0f;
-//			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 b(1.0f, -2.0f, 4.0f);
-//			b *= 5.0f;
-//			Assert::AreEqual(5.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-10.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(20.0f, b.z, std::numeric_limits<float>::epsilon());
-//
-//			b *= -2.0f;
-//			Assert::AreEqual(-10.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(20.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-40.0f, b.z, std::numeric_limits<float>::epsilon());
-//		}
-//
-//		TEST_METHOD(OverEqualsTest)
-//		{
-//			cgmath::vec3 a;
-//			a /= 2.0f;
-//			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 b(-10.0f, 20.0f, -120.0f);
-//			b /= 5.0f;
-//			Assert::AreEqual(-2.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(4.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-24.0f, b.z, std::numeric_limits<float>::epsilon());
-//
-//			b /= -2.0f;
-//			Assert::AreEqual(1.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-2.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(12.0f, b.z, std::numeric_limits<float>::epsilon());
-//		}
-//
-//		TEST_METHOD(PlusEqualsTest)
-//		{
-//			cgmath::vec3 a;
-//			cgmath::vec3 b(2.0f, -3.0f, 5.0f);
-//			a += b;
-//			Assert::AreEqual(2.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-3.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(5.0f, a.z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
-//
-//			a += b;
-//			Assert::AreEqual(4.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-6.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(10.0f, a.z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 c(-6.0f, 8.0f, 2.0f);
-//			a += c;
-//			Assert::AreEqual(-2.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(12.0f, a.z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-6.0f, c.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(8.0f, c.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, c.z, std::numeric_limits<float>::epsilon());
-//		}
-//
-//		TEST_METHOD(MinusEqualsTest)
-//		{
-//			cgmath::vec3 a;
-//			cgmath::vec3 b(2.0f, -3.0f, 5.0f);
-//			a -= b;
-//			Assert::AreEqual(-2.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(3.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-5.0f, a.z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
-//
-//			a -= b;
-//			Assert::AreEqual(-4.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(6.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-10.0f, a.z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 c(-6.0f, 8.0f, 2.0f);
-//			a -= c;
-//			Assert::AreEqual(2.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-2.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-12.0f, a.z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-6.0f, c.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(8.0f, c.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.0f, c.z, std::numeric_limits<float>::epsilon());
-//		}
-//
+
+		TEST_METHOD(TimesEqualsTest)
+		{
+			cgmath::vec3 a;
+			a *= 5.0f;
+			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 b(1.0f, -2.0f, 4.0f);
+			b *= 5.0f;
+			Assert::AreEqual(5.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-10.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(20.0f, b.z, std::numeric_limits<float>::epsilon());
+
+			b *= -2.0f;
+			Assert::AreEqual(-10.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(20.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-40.0f, b.z, std::numeric_limits<float>::epsilon());
+		}
+
+		TEST_METHOD(OverEqualsTest)
+		{
+			cgmath::vec3 a;
+			a /= 2.0f;
+			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 b(-10.0f, 20.0f, -120.0f);
+			b /= 5.0f;
+			Assert::AreEqual(-2.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(4.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-24.0f, b.z, std::numeric_limits<float>::epsilon());
+
+			b /= -2.0f;
+			Assert::AreEqual(1.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-2.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(12.0f, b.z, std::numeric_limits<float>::epsilon());
+		}
+
+		TEST_METHOD(PlusEqualsTest)
+		{
+			cgmath::vec3 a;
+			cgmath::vec3 b(2.0f, -3.0f, 5.0f);
+			a += b;
+			Assert::AreEqual(2.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-3.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(5.0f, a.z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
+
+			a += b;
+			Assert::AreEqual(4.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-6.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(10.0f, a.z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 c(-6.0f, 8.0f, 2.0f);
+			a += c;
+			Assert::AreEqual(-2.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(12.0f, a.z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-6.0f, c.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(8.0f, c.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, c.z, std::numeric_limits<float>::epsilon());
+		}
+
+		TEST_METHOD(MinusEqualsTest)
+		{
+			cgmath::vec3 a;
+			cgmath::vec3 b(2.0f, -3.0f, 5.0f);
+			a -= b;
+			Assert::AreEqual(-2.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(3.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-5.0f, a.z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
+
+			a -= b;
+			Assert::AreEqual(-4.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(6.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-10.0f, a.z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-3.0f, b.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(5.0f, b.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 c(-6.0f, 8.0f, 2.0f);
+			a -= c;
+			Assert::AreEqual(2.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-2.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-12.0f, a.z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-6.0f, c.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(8.0f, c.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.0f, c.z, std::numeric_limits<float>::epsilon());
+		}
+
 //		TEST_METHOD(EqualityTest)
 //		{
 //			cgmath::vec3 a;
@@ -595,5 +595,5 @@
 //			Assert::AreEqual(-28.0f, d.y, std::numeric_limits<float>::epsilon());
 //			Assert::AreEqual(65.0f, d.z, std::numeric_limits<float>::epsilon());
 //		}
-//	};
-//}
+	};
+}
