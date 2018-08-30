@@ -67,6 +67,7 @@ const float cgmath::vec2::magnitude()
 //<<{const}>> operator==(v:const vec2&):bool
 // std::cout << real << " + " << imag << "i" << std::endl;
 // std::cout << " -1 == 1? " << (n == n2) << '\n'
+//
 
 void cgmath::vec2::normalize()
 {
