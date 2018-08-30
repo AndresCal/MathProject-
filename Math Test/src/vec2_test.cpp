@@ -193,28 +193,28 @@ namespace MathTest
 			Assert::AreEqual(-4.0f, d.y, std::numeric_limits<float>::epsilon());
 		}
 
-		//TEST_METHOD(InstanceNormalizeTest)
-		//{
-		//	cgmath::vec2 a;
-		//	a.normalize();
-		//	Assert::IsTrue(std::isnan(a.x));
-		//	Assert::IsTrue(std::isnan(a.y));
+		TEST_METHOD(InstanceNormalizeTest)
+		{
+			cgmath::vec2 a;
+			a.normalize();
+			Assert::IsTrue(std::isnan(a.x));
+			Assert::IsTrue(std::isnan(a.y));
 
-		//	cgmath::vec2 b(1.0f, 0.0f);
-		//	b.normalize();
-		//	Assert::AreEqual(1.0f, b.x, std::numeric_limits<float>::epsilon());
-		//	Assert::AreEqual(0.0f, b.y, std::numeric_limits<float>::epsilon());
+			cgmath::vec2 b(1.0f, 0.0f);
+			b.normalize();
+			Assert::AreEqual(1.0f, b.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, b.y, std::numeric_limits<float>::epsilon());
 
-		//	cgmath::vec2 c(0.0f, 1.0f);
-		//	c.normalize();
-		//	Assert::AreEqual(0.0f, c.x, std::numeric_limits<float>::epsilon());
-		//	Assert::AreEqual(1.0f, c.y, std::numeric_limits<float>::epsilon());
+			cgmath::vec2 c(0.0f, 1.0f);
+			c.normalize();
+			Assert::AreEqual(0.0f, c.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, c.y, std::numeric_limits<float>::epsilon());
 
-		//	cgmath::vec2 d(1.0f, -4.0f);
-		//	d.normalize();
-		//	Assert::AreEqual(1.0f / sqrt(17.0f), d.x, std::numeric_limits<float>::epsilon());
-		//	Assert::AreEqual(-4.0f / sqrt(17.0f), d.y, std::numeric_limits<float>::epsilon());
-		//}
+			cgmath::vec2 d(1.0f, -4.0f);
+			d.normalize();
+			Assert::AreEqual(1.0f / sqrt(17.0f), d.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-4.0f / sqrt(17.0f), d.y, std::numeric_limits<float>::epsilon());
+		}
 
 		TEST_METHOD(StaticMagnitudeTest)
 		{
@@ -294,21 +294,21 @@ namespace MathTest
 			Assert::AreEqual(-2.0f, b.y, std::numeric_limits<float>::epsilon());
 		}
 
-//		TEST_METHOD(StreamExtractionTest)
-//		{
-//			std::stringstream ss1;
-//			cgmath::vec2 a;
-//			ss1 << a;
-//			std::string vecstring1 = ss1.rdbuf()->str();
-//			Assert::AreEqual<std::string>("(0, 0)", vecstring1);
-//
-//			std::stringstream ss2;
-//			cgmath::vec2 b(5.0f, -10.0f);
-//			ss2 << b;
-//			std::string vecstring2 = ss2.rdbuf()->str();
-//			Assert::AreEqual<std::string>("(5, -10)", vecstring2);
-//		}
-//
+		TEST_METHOD(StreamExtractionTest)
+		{
+			std::stringstream ss1;
+			cgmath::vec2 a;
+			ss1 << a;
+			std::string vecstring1 = ss1.rdbuf()->str();
+			Assert::AreEqual<std::string>("(0, 0)", vecstring1);
+
+			std::stringstream ss2;
+			cgmath::vec2 b(5.0f, -10.0f);
+			ss2 << b;
+			std::string vecstring2 = ss2.rdbuf()->str();
+			Assert::AreEqual<std::string>("(5, -10)", vecstring2);
+		}
+
 		TEST_METHOD(MultiplicationTest)
 		{
 			cgmath::vec2 a;

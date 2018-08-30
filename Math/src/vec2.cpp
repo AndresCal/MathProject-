@@ -64,10 +64,6 @@ const float cgmath::vec2::magnitude()
 	return a = sqrtf(x * x + y * y);
 }
 
-//<<{const}>> operator==(v:const vec2&):bool
-// std::cout << real << " + " << imag << "i" << std::endl;
-// std::cout << " -1 == 1? " << (n == n2) << '\n'
-//
 
 void cgmath::vec2::normalize()
 {
@@ -82,10 +78,16 @@ float cgmath::vec2::magnitude(const cgmath::vec2& v)
 	return sqrtf(v.x * v.x + v.y * v.y);
 }
 
+//cgmath::vec2 & ::vec2::normalize(const cgmath::vec2& v) 
+//{
+//	float a; 
+//	a = sqrtf(v.x * v.x + v.y * v.y);
+//	
+//	return (v.x / v.magnitude, v.y / a);
+//}
 
 float cgmath::vec2::dot(const cgmath::vec2& a, const cgmath::vec2& b)
 {
 	return (a.x * b.x + a.y * b.y);
 }
-
 

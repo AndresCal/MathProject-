@@ -22,6 +22,7 @@ namespace cgmath {
 
 		static float dot(const cgmath::vec2 & a, const cgmath::vec2 & b);
 
+
 		cgmath::vec2 & operator*=(float s);
 
 		cgmath::vec2 & operator/=(float s);
@@ -30,11 +31,20 @@ namespace cgmath {
 
 		cgmath::vec2 & operator-=(const cgmath::vec2 & v);
 
+		friend inline std::ostream& operator <<(std::ostream& os, const cgmath::vec2 v)
+		{
+			os << "(" << v.y<< "," << v.x << ")" << std::endl;
+			return os;
+		}
 
 
 		
+		static cgmath::vec2 & normalize(const cgmath::vec2 & v);
+
 	};
 };
+
+
 
 inline cgmath::vec2 operator*(const cgmath::vec2& v, float s)
 {
