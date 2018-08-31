@@ -13,6 +13,12 @@ namespace cgmath {
 
 		vec3(float x, float y, float z);
 
+		float & operator[](int i);
+
+		const float & operator[](int i) const;
+
+		
+
 		const bool operator==(const cgmath::vec3 & v);
 
 		const float magnitude();
@@ -20,17 +26,26 @@ namespace cgmath {
 		void normalize();
 
 		static float magnitude(const cgmath::vec3 & v);
+		static cgmath::vec3 normalize(const cgmath::vec3 & v);
 		static float dot(const cgmath::vec3 & a, const cgmath::vec3 & b);
 
+		static cgmath::vec3 cross(const cgmath::vec3 & a, const cgmath::vec3 & b);
 
 		cgmath::vec3 & operator*=(float s);
 		cgmath::vec3 & operator/=(float s);
 		cgmath::vec3 & operator+=(const cgmath::vec3 & v);
 		cgmath::vec3 & operator-=(const cgmath::vec3 & v);
 
+		
 
+	
 
+		
+
+		
 	};
+
+	std::ostream & operator<<(std::ostream & os, const vec3 & v);
 
 };
 

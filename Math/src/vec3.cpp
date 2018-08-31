@@ -13,7 +13,17 @@ cgmath::vec3::vec3(float x, float y, float z) : x(x), y(y), z(z)
 
 }
 
-//Index
+float& cgmath::vec3::operator[](int i)
+{
+	float* ptrX = &x;
+	return *(ptrX + i);
+}
+
+const float& cgmath::vec3::operator[](int i) const
+{
+	const float* ptrX = &x;
+	return *(ptrX + i);
+}
 
 cgmath::vec3 & vec3::operator*=(float s) {
 	x *= s;
@@ -75,17 +85,30 @@ float cgmath::vec3::magnitude(const cgmath::vec3& v)
 	return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 }
 
-//normalize
+cgmath::vec3  cgmath::vec3::normalize(const cgmath::vec3& v)
+{
+	float a;
+	a = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
+
+	return vec3(v.x / a, v.y / a, v.z / a);
+}
 
 float cgmath::vec3::dot(const cgmath::vec3& a, const cgmath::vec3& b)
 {
 	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }
 
-//cgmath::vec3 & vec3::cross(cgmath::vec3& a, cgmath::vec3& b)
+//cgmath::vec3 cgmath::vec3::cross(const cgmath::vec3& a, const cgmath::vec3& b)
 //{
-//	return (a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+//	return cgmath::vec3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
 //}
+
+std::ostream& cgmath::operator<<(std::ostream& os, const vec3& v)
+{
+	os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+	return os;
+}
+
 
 
 

@@ -7,7 +7,7 @@ namespace cgmath
 	class mat3
 	{
 	private:
-		float n;
+		float n[3][3];
 
 
 		mat3();

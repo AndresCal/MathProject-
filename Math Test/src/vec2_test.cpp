@@ -37,27 +37,27 @@ namespace MathTest
 			Assert::AreEqual(-4.0f, b.y, std::numeric_limits<float>::epsilon());
 		}
 
-//		TEST_METHOD(IndexTest)
-//		{
-//			cgmath::vec2 a;
-//			Assert::AreEqual(0.0f, a[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a[1], std::numeric_limits<float>::epsilon());
-//
-//			a[0] = -1.0f;
-//			a[1] = 3.0f;
-//			Assert::AreEqual(-1.0f, a[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(3.0f, a[1], std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec2 b(-5.0f, 19.0f);
-//			Assert::AreEqual(-5.0f, b[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(19.0f, b[1], std::numeric_limits<float>::epsilon());
-//
-//			b[0] = 10.0f;
-//			b[1] = -6.0f;
-//			Assert::AreEqual(10.0f, b[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-6.0f, b[1], std::numeric_limits<float>::epsilon());
-//		}
-//
+		TEST_METHOD(indextest)
+		{
+			cgmath::vec2 a;
+			Assert::AreEqual(0.0f, a[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a[1], std::numeric_limits<float>::epsilon());
+
+			a[0] = -1.0f;
+			a[1] = 3.0f;
+			Assert::AreEqual(-1.0f, a[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(3.0f, a[1], std::numeric_limits<float>::epsilon());
+
+			cgmath::vec2 b(-5.0f, 19.0f);
+			Assert::AreEqual(-5.0f, b[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(19.0f, b[1], std::numeric_limits<float>::epsilon());
+
+			b[0] = 10.0f;
+			b[1] = -6.0f;
+			Assert::AreEqual(10.0f, b[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-6.0f, b[1], std::numeric_limits<float>::epsilon());
+		}
+
 		TEST_METHOD(TimesEqualsTest)
 		{
 			cgmath::vec2 a;
@@ -239,7 +239,7 @@ namespace MathTest
 			Assert::AreEqual(-4.0f, d.y, std::numeric_limits<float>::epsilon());
 		}
 
-		/*TEST_METHOD(StaticNormalizeTest)
+		TEST_METHOD(StaticNormalizeTest)
 		{
 			cgmath::vec2 a;
 			cgmath::vec2 b = cgmath::vec2::normalize(a);
@@ -265,7 +265,7 @@ namespace MathTest
 			Assert::AreEqual(-4.0f / sqrt(17.0f), cgmath::vec2::normalize(e).y, std::numeric_limits<float>::epsilon());
 			Assert::AreEqual(1.0f, e.x, std::numeric_limits<float>::epsilon());
 			Assert::AreEqual(-4.0f, e.y, std::numeric_limits<float>::epsilon());
-		}*/
+		}
 
 		TEST_METHOD(StaticDotTest)
 		{

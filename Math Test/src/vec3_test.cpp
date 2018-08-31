@@ -38,33 +38,33 @@ namespace MathTest
 			Assert::AreEqual(-4.0f, b.y, std::numeric_limits<float>::epsilon());
 			Assert::AreEqual(29.0f, b.z, std::numeric_limits<float>::epsilon());
 		}
-//
-//		TEST_METHOD(IndexTest)
-//		{
-//			cgmath::vec3 a;
-//			Assert::AreEqual(0.0f, a[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a[1], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a[2], std::numeric_limits<float>::epsilon());
-//
-//			a[0] = -1.0f;
-//			a[1] = 3.0f;
-//			a[2] = -5.0f;
-//			Assert::AreEqual(-1.0f, a[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(3.0f, a[1], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-5.0f, a[2], std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 b(-5.0f, 19.0f, 23.0f);
-//			Assert::AreEqual(-5.0f, b[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(19.0f, b[1], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(23.0f, b[2], std::numeric_limits<float>::epsilon());
-//
-//			b[0] = 10.0f;
-//			b[1] = -6.0f;
-//			b[2] = 2.5f;
-//			Assert::AreEqual(10.0f, b[0], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-6.0f, b[1], std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(2.5f, b[2], std::numeric_limits<float>::epsilon());
-//		}
+
+		TEST_METHOD(IndexTest)
+		{
+			cgmath::vec3 a;
+			Assert::AreEqual(0.0f, a[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a[1], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a[2], std::numeric_limits<float>::epsilon());
+
+			a[0] = -1.0f;
+			a[1] = 3.0f;
+			a[2] = -5.0f;
+			Assert::AreEqual(-1.0f, a[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(3.0f, a[1], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-5.0f, a[2], std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 b(-5.0f, 19.0f, 23.0f);
+			Assert::AreEqual(-5.0f, b[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(19.0f, b[1], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(23.0f, b[2], std::numeric_limits<float>::epsilon());
+
+			b[0] = 10.0f;
+			b[1] = -6.0f;
+			b[2] = 2.5f;
+			Assert::AreEqual(10.0f, b[0], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-6.0f, b[1], std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(2.5f, b[2], std::numeric_limits<float>::epsilon());
+		}
 
 		TEST_METHOD(TimesEqualsTest)
 		{
@@ -302,58 +302,58 @@ namespace MathTest
 			Assert::AreEqual(-4.0f, e.y, std::numeric_limits<float>::epsilon());
 			Assert::AreEqual(2.0f, e.z, std::numeric_limits<float>::epsilon());
 		}
-//
-//		TEST_METHOD(StaticNormalizeTest)
-//		{
-//			cgmath::vec3 a;
-//			cgmath::vec3 b = cgmath::vec3::normalize(a);
-//			Assert::IsTrue(std::isnan(b.x));
-//			Assert::IsTrue(std::isnan(b.y));
-//			Assert::IsTrue(std::isnan(b.z));
-//			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 c(1.0f, 0.0f, 0.0f);
-//			Assert::AreEqual(1.0f, cgmath::vec3::normalize(c).x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, cgmath::vec3::normalize(c).y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, cgmath::vec3::normalize(c).z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, c.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, c.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, c.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 d(0.0f, 1.0f, 0.0f);
-//			Assert::AreEqual(0.0f, cgmath::vec3::normalize(d).x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, cgmath::vec3::normalize(d).y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, cgmath::vec3::normalize(d).z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, d.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, d.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, d.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 e(0.0f, 0.0f, 1.0f);
-//			Assert::AreEqual(0.0f, cgmath::vec3::normalize(e).x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, cgmath::vec3::normalize(e).y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, cgmath::vec3::normalize(e).z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, e.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(0.0f, e.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, e.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 f(1.0f, -4.0f, 29.0f);
-//			Assert::AreEqual(1.0f / sqrt(858.0f), cgmath::vec3::normalize(f).x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-4.0f / sqrt(858.0f), cgmath::vec3::normalize(f).y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(29.0f / sqrt(858.0f), cgmath::vec3::normalize(f).z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, f.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(-4.0f, f.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(29.0f, f.z, std::numeric_limits<float>::epsilon());
-//
-//			cgmath::vec3 g(1.0f, 4.0f, 8.0f);
-//			Assert::AreEqual(1.0f / 9.0f, cgmath::vec3::normalize(g).x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(4.0f / 9.0f, cgmath::vec3::normalize(g).y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(8.0f / 9.0f, cgmath::vec3::normalize(g).z, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(1.0f, g.x, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(4.0f, g.y, std::numeric_limits<float>::epsilon());
-//			Assert::AreEqual(8.0f, g.z, std::numeric_limits<float>::epsilon());
-//		}
+
+		TEST_METHOD(StaticNormalizeTest)
+		{
+			cgmath::vec3 a;
+			cgmath::vec3 b = cgmath::vec3::normalize(a);
+			Assert::IsTrue(std::isnan(b.x));
+			Assert::IsTrue(std::isnan(b.y));
+			Assert::IsTrue(std::isnan(b.z));
+			Assert::AreEqual(0.0f, a.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, a.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 c(1.0f, 0.0f, 0.0f);
+			Assert::AreEqual(1.0f, cgmath::vec3::normalize(c).x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, cgmath::vec3::normalize(c).y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, cgmath::vec3::normalize(c).z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, c.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, c.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, c.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 d(0.0f, 1.0f, 0.0f);
+			Assert::AreEqual(0.0f, cgmath::vec3::normalize(d).x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, cgmath::vec3::normalize(d).y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, cgmath::vec3::normalize(d).z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, d.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, d.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, d.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 e(0.0f, 0.0f, 1.0f);
+			Assert::AreEqual(0.0f, cgmath::vec3::normalize(e).x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, cgmath::vec3::normalize(e).y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, cgmath::vec3::normalize(e).z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, e.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(0.0f, e.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, e.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 f(1.0f, -4.0f, 29.0f);
+			Assert::AreEqual(1.0f / sqrt(858.0f), cgmath::vec3::normalize(f).x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-4.0f / sqrt(858.0f), cgmath::vec3::normalize(f).y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(29.0f / sqrt(858.0f), cgmath::vec3::normalize(f).z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, f.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(-4.0f, f.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(29.0f, f.z, std::numeric_limits<float>::epsilon());
+
+			cgmath::vec3 g(1.0f, 4.0f, 8.0f);
+			Assert::AreEqual(1.0f / 9.0f, cgmath::vec3::normalize(g).x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(4.0f / 9.0f, cgmath::vec3::normalize(g).y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(8.0f / 9.0f, cgmath::vec3::normalize(g).z, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(1.0f, g.x, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(4.0f, g.y, std::numeric_limits<float>::epsilon());
+			Assert::AreEqual(8.0f, g.z, std::numeric_limits<float>::epsilon());
+		}
 
 		TEST_METHOD(StaticDotTest)
 		{
@@ -422,22 +422,22 @@ namespace MathTest
 //			Assert::AreEqual<cgmath::vec3>(c, cgmath::vec3::cross(a, f));
 //			Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, g));
 //		}
-//
-//		TEST_METHOD(StreamExtractionTest)
-//		{
-//			std::stringstream ss1;
-//			cgmath::vec3 a;
-//			ss1 << a;
-//			std::string vecstring1 = ss1.rdbuf()->str();
-//			Assert::AreEqual<std::string>("(0, 0, 0)", vecstring1);
-//
-//			std::stringstream ss2;
-//			cgmath::vec3 b(5.0f, -10.0f, 1.0f);
-//			ss2 << b;
-//			std::string vecstring2 = ss2.rdbuf()->str();
-//			Assert::AreEqual<std::string>("(5, -10, 1)", vecstring2);
-//		}
-//
+////
+		TEST_METHOD(StreamExtractionTest)
+		{
+			std::stringstream ss1;
+			cgmath::vec3 a;
+			ss1 << a;
+			std::string vecstring1 = ss1.rdbuf()->str();
+			Assert::AreEqual<std::string>("(0, 0, 0)", vecstring1);
+
+			std::stringstream ss2;
+			cgmath::vec3 b(5.0f, -10.0f, 1.0f);
+			ss2 << b;
+			std::string vecstring2 = ss2.rdbuf()->str();
+			Assert::AreEqual<std::string>("(5, -10, 1)", vecstring2);
+		}
+
 		TEST_METHOD(MultiplicationTest)
 		{
 			cgmath::vec3 a;
