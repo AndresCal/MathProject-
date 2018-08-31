@@ -357,4 +357,4 @@
 //			Assert::AreEqual(1.0f, (m1 * m2 * v1).z, std::numeric_limits<float>::epsilon());
 //		}
 //	};
-//};
+//}

@@ -98,11 +98,10 @@ float cgmath::vec3::dot(const cgmath::vec3& a, const cgmath::vec3& b)
 	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }
 
-//cgmath::vec3 cgmath::vec3::cross(const cgmath::vec3& a, const cgmath::vec3& b)
-//{
-//	return cgmath::vec3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
-//}
-
+cgmath::vec3 cgmath::vec3::cross(const vec3& a, const vec3& b)
+{
+	return vec3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+}
 std::ostream& cgmath::operator<<(std::ostream& os, const vec3& v)
 {
 	os << "(" << v.x << ", " << v.y << ", " << v.z << ")";

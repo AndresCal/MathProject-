@@ -12,5 +12,9 @@ namespace cgmath
 
 		mat3();
 
+		/*mat3(float diagonal);
+
+		mat3(const cgmath::vec3 & a, const cgmath::vec3 & b, const cgmath::vec3 & c);*/
+
 	};
 }
