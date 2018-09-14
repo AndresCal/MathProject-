@@ -29,9 +29,8 @@ namespace cgmath {
 		static cgmath::vec3 normalize(const cgmath::vec3 & v);
 		static float dot(const cgmath::vec3 & a, const cgmath::vec3 & b);
 
-		static cgmath::vec3 cross(const vec3 & a, const vec3 & b);
-
-		
+		static cgmath::vec3 cross(const cgmath::vec3 & a, const cgmath::vec3 & b);
+	
 
 		cgmath::vec3 & operator*=(float s);
 		cgmath::vec3 & operator/=(float s);

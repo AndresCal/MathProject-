@@ -6,8 +6,7 @@ namespace cgmath {
 	class vec2
 	{
 	public:
-		float x;
-		float y;
+		float x, y;
 
 		vec2();
 		vec2(float x, float y);

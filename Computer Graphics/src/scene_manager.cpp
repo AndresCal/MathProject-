@@ -7,6 +7,9 @@
 
 #include "scene.h"
 #include "scene_compatibility.h"
+#include "scene_primitives.h"
+#include "scene_nicomedes.h"
+#include "scene_chaikin.h"
 #include "time.h"
 
 std::vector<std::unique_ptr<scene>> scene_manager::sceneList;
@@ -19,7 +22,8 @@ void scene_manager::start(int argc, char* argv[], const std::string& name, int w
 
 	// Freeglut init
 	glutInit(&argc, argv);
-	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
+	glutInitContextProfile(GLUT_CORE_PROFILE);
+	//glutInitContextVersion(3, 3);
 	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 	glutInitWindowSize(width, height);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
@@ -80,8 +84,19 @@ void scene_manager::initialize()
 	//std::unique_ptr<scene> somescene(new scene_project);
 	//sceneList.push_back(std::move(somescene));
 	
-	std::unique_ptr<scene> scene1(new scene_compatibility);
-	sceneList.push_back(std::move(scene1));
+	/*std::unique_ptr<scene> scene1(new scene_compatibility);
+	sceneList.push_back(std::move(scene1));*/
+
+	//std::unique_ptr<scene> scene2(new scene_primitives); //crea un apuntador a una nueva escena
+	//scenelist.push_back(std::move(scene2));
+
+	std::unique_ptr<scene> scene3(new scene_nicomedes);
+	sceneList.push_back(std::move(scene3));
+
+	//Chaikin y yo nos llevamos mal
+	//std::unique_ptr<scene> scene4(new scene_chaikin);
+	//sceneList.push_back(std::move(scene4));
+
 
 	for (auto& s : sceneList)
 		s->init();
