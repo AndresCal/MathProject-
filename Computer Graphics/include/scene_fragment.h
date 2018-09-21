@@ -1,27 +1,26 @@
 #pragma once
-#include <scene.h>
-#include <vector>
-#include <vec2.h>
 
-class scene_chaikin : public scene
+#include "scene.h"
+
+class scene_fragment : public scene
 {
-public:
-	//void chaikin(std::vector<cgmath::vec2>& positions);
+	~scene_fragment();
+
 	void init();
-	void awake();
+	void awake(); //Configurar escena
 	void sleep();
 	void reset() { } //implementacion vacia
-	void mainLoop();
-	void chaikin(std::vector<cgmath::vec2>& positions);
-	void resize(int width, int height) { }
+	void mainLoop(); //Dibujamos
+	void resize(int width, int height); //Tamaño del viewport 
 	void normalKeysDown(unsigned char key) { }
 	void normalKeysUp(unsigned char key) { }
 	void specialKeys(int key) { }
 	void passiveMotion(int x, int y) { }
 
 private:
+	GLuint shader_program;
 	GLuint vao;
 	GLuint positionsVBO;
+	GLuint indicesBuffer;
 
 };
-

@@ -1,24 +1,27 @@
 #pragma once
 #include <scene.h>
+#include <vector>
+#include <vec2.h>
 
-class scene_nicomedes : public scene 
+class scene_chaikin2 : public scene
 {
 public:
+	//void chaikin(std::vector<cgmath::vec2>& positions);
 	void init();
 	void awake();
 	void sleep();
 	void reset() { } //implementacion vacia
 	void mainLoop();
+	void chaikin(std::vector<cgmath::vec2>& positions);
 	void resize(int width, int height) { }
 	void normalKeysDown(unsigned char key) { }
 	void normalKeysUp(unsigned char key) { }
 	void specialKeys(int key) { }
 	void passiveMotion(int x, int y) { }
 
-private: 
+private:
 	GLuint vao;
-	GLuint vao1;
-	GLuint positioonsVBO;
-	GLuint positioonsVBO1;
+	GLuint positionsVBO;
 
 };
+

@@ -47,6 +47,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Scene_chaikin2.cpp" />
+    <ClCompile Include="src\scene_fragment.cpp" />
+    <ClCompile Include="src\scene_vertex.cpp" />
     <ClCompile Include="src\scene_chaikin.cpp" />
     <ClCompile Include="src\scene_nicomedes.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -63,12 +66,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Scene_chaikin2.h" />
+    <ClInclude Include="include\scene_fragment.h" />
+    <ClInclude Include="include\scene_vertex.h" />
     <ClInclude Include="include\scene.h" />
     <ClInclude Include="include\scene_compatibility.h" />
     <ClInclude Include="include\scene_manager.h" />
     <ClInclude Include="include\scene_primitives.h" />
     <ClInclude Include="include\scene_nicomedes.h" />
     <ClInclude Include="include\scene_chaikin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\Default.frag" />
+    <None Include="shaders\circle.vert" />
+    <None Include="shaders\grid.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

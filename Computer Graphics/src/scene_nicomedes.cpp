@@ -3,32 +3,23 @@
 #include <vector>
 #include <math.h>
 
- //https://www.mathcurve.com/courbes2d/conchoiddenicomede/conchoiddenicomede.shtml
-// 
-
-double xmax, ymax, xmin, ymin;
-double a = 1.0f, b = 2.0f;
-double pi = 4.0f * atan(1.0f); //arctan
-double r = 0.05;
-double t;
+std::vector<cgmath::vec2> positionsnico;
+std::vector<cgmath::vec2> positionsnico2;
 
 void scene_nicomedes::init()
 {
+	double xmax, ymax, xmin, ymin;
+	double a = 1.0f, b = 2.0f;
+	double pi = 4.0f * atan(1.0f); //arctan
+	double r = 0.05;
+	double t;
 	double x1, x2, y1, y2;
 	//Ejes
-	std::vector<cgmath::vec2> positions;
-	positions.push_back(cgmath::vec2(-1.0f, 0.0f));
-	positions.push_back(cgmath::vec2(1.0f,0.0f));
-
-	positions.push_back(cgmath::vec2(0.0f, 1.0f));
-	positions.push_back(cgmath::vec2(0.0f, -1.0f));
-	
 	xmax = a - b - 1.0f;
 	xmin = a + b + 1.0f;
 	ymax = ymin = 0.0f;
 
 	for (t = -pi / 2.0f + r; t < pi / 2.0f; t += r) {
-	
 
 		x1 = a + b * cos(t);
 		if (xmax < x1)
@@ -73,7 +64,7 @@ void scene_nicomedes::init()
 	{
 		xmax = abs(xmax);
 	}
-	else 
+	else
 	{
 		xmax = abs(xmin);
 	}
@@ -87,13 +78,46 @@ void scene_nicomedes::init()
 		ymax = abs(ymin);
 	}
 
+	for (t = -pi / 2 + r; t < pi / 2; t += r) {
+		x1 = (a + b * cos(t)) / xmax;
+		x2 = (a - b * cos(t)) / xmax;
+		y1 = (a * tan(t) + b * sin(t)) / ymax;
+		y2 = (a * tan(t) - b * sin(t)) / ymax;
+
+		positionsnico.push_back(cgmath::vec2(x1 * 0.4f, y1 * 2.5f));
+	}
+	for (t = -pi / 2 + r; t < pi / 2; t += r) {
+		x1 = (a + b * cos(t)) / xmax;
+		x2 = (a - b * cos(t)) / xmax;
+		y1 = (a * tan(t) + b * sin(t)) / ymax;
+		y2 = (a * tan(t) - b * sin(t)) / ymax;
+
+		positionsnico2.push_back(cgmath::vec2(x2 * 0.4f, y2 * 2.5f));
+	}
+
+	//Y1 y X2
 	glGenVertexArrays(1, &vao); //Variable donde quiero vaciar 
 	glBindVertexArray(vao);
 
 	glGenBuffers(1, &positioonsVBO); //locreamos
 	glBindBuffer(GL_ARRAY_BUFFER, positioonsVBO); //el buffer que creo lo ocupo como atributo activamos
-	glBufferData(GL_ARRAY_BUFFER, sizeof(cgmath::vec2) * positions.size(),  //mandamos los datos
-		positions.data(),
+	glBufferData(GL_ARRAY_BUFFER, sizeof(cgmath::vec2) * positionsnico.size(),  //mandamos los datos
+		positionsnico.data(),
+		GL_DYNAMIC_DRAW);
+	glEnableVertexAttribArray(0); //ya lo prendi
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, nullptr); //atributi igual al de arriba, 2 por vertive, tipo de dato, normalizar?, falso, especificar
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+
+	//Y2 y X2
+	glGenVertexArrays(1, &vao1); //Variable donde quiero vaciar 
+	glBindVertexArray(vao1);
+
+	glGenBuffers(1, &positioonsVBO1); //locreamos
+	glBindBuffer(GL_ARRAY_BUFFER, positioonsVBO1); //el buffer que creo lo ocupo como atributo activamos
+	glBufferData(GL_ARRAY_BUFFER, sizeof(cgmath::vec2) * positionsnico2.size(),  //mandamos los datos
+		positionsnico2.data(),
 		GL_DYNAMIC_DRAW);
 	glEnableVertexAttribArray(0); //ya lo prendi
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, nullptr); //atributi igual al de arriba, 2 por vertive, tipo de dato, normalizar?, falso, especificar
@@ -114,40 +138,20 @@ void scene_nicomedes::sleep()
 
 void scene_nicomedes::mainLoop()
 {
-
-	double x1, y1, x2, y2; 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	//dibujar
+
+	//Y1 y X1
 	glBindVertexArray(vao);
-	glColor3f(1.0f, 1.5, 1.0);
-	glDrawArrays(GL_LINES,0,4);
+	glDrawArrays(GL_LINE_STRIP, 0, positionsnico.size());
 	glBindVertexArray(0);
 
-	glColor3f(0.0f, 0.5, 1.0);
-	glBegin(GL_LINE_STRIP);
-	for (t = -pi / 2 + r; t < pi / 2; t += r) {
-		x1 = (a + b * cos(t)) / xmax;
-		x2 = (a - b * cos(t)) / xmax;
-		y1 = (a * tan(t) + b * sin(t)) / ymax;
-		y2 = (a * tan(t) - b * sin(t)) / ymax;
-
-		glVertex2f(x1 * 0.4f, y1 * 2.5f);
-		
-	}
-	glEnd();
-
-	glBegin(GL_LINE_STRIP);
-	for (t = -pi / 2 + r; t < pi / 2; t += r) {
-		x1 = (a + b * cos(t)) / xmax;
-		x2 = (a - b * cos(t)) / xmax;
-		y1 = (a * tan(t) + b * sin(t)) / ymax;
-		y2 = (a * tan(t) - b * sin(t)) / ymax;
-
-		glVertex2f(x2 * 0.4f, y2 * 2.5f);
-	}
-	glEnd();
+	//Y2 y X2
+	glBindVertexArray(vao1);
+	glDrawArrays(GL_LINE_STRIP, 0, positionsnico2.size());
+	glBindVertexArray(0);
 }
 
 
-
+//Referencias
+//https://github.com/jesusjimsa/Computer-Graphics-UAIC/blob/master/Homework%202/t02p1%20jimenezsanchezjesus%20rodriguezcalvojosemanuel.cpp
