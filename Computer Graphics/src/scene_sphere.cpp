@@ -1,18 +1,18 @@
-#include "scene_vertex.h"
+#include "scene_sphere.h"
 
 #include "ifile.h"
 #include "time.h"
 #include <string>
 
-scene_vertex::~scene_vertex()
+scene_sphere::~scene_sphere()
 {
 	glDeleteProgram(shader_program);
 }
 
-void scene_vertex::init()
+void scene_sphere::init()
 {
 	ifile shader_file;
-	shader_file.read("shaders/grid.vert");
+	shader_file.read("shaders/sphere.vert");
 	std::string vertex_source = shader_file.get_contents();
 	const GLchar* vertex_source_c = (const GLchar*)
 		vertex_source.c_str();
@@ -39,19 +39,19 @@ void scene_vertex::init()
 	glDeleteShader(fragment_shader);
 }
 
-void scene_vertex::awake()
+void scene_sphere::awake()
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glEnable(GL_PROGRAM_POINT_SIZE);
 }
 
-void scene_vertex::sleep()
+void scene_sphere::sleep()
 {
 	glClearColor(1.0f, 1.0f, 0.5f, 1.0f);
 	glDisable(GL_PROGRAM_POINT_SIZE);
 }
 
-void scene_vertex::mainLoop()
+void scene_sphere::mainLoop()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -59,11 +59,11 @@ void scene_vertex::mainLoop()
 	GLuint time_loc =
 		glGetUniformLocation(shader_program, "time");
 	glUniform1f(time_loc, time::elapsed_time().count());
-	glDrawArrays(GL_POINTS, 0, 100);
+	glDrawArrays(GL_POINTS, 0, 5000);
 	glUseProgram(0);
 }
 
-void scene_vertex::resize(int width, int height)
+void scene_sphere::resize(int width, int height)
 {
 	glViewport(0, 0, width, height);
 }

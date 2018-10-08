@@ -33,13 +33,19 @@
     <ClCompile Include="src\scene_chaikin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene_vertex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\scene_fragment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene_chaikin2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene_grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene_sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene_cirlce.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,13 +68,22 @@
     <ClInclude Include="include\scene_chaikin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\scene_vertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\scene_fragment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Scene_chaikin2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene_grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene_sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene_cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene_circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -76,5 +91,10 @@
     <None Include="shaders\Default.frag" />
     <None Include="shaders\circle.vert" />
     <None Include="shaders\grid.vert" />
+    <None Include="shaders\palmtree.frag" />
+    <None Include="shaders\Default.vert" />
+    <None Include="shaders\Intento.vert" />
+    <None Include="shaders\sphere.vert" />
+    <None Include="shaders\circle_grid.vert" />
   </ItemGroup>
 </Project>

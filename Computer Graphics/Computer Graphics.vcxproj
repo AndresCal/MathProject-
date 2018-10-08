@@ -47,9 +47,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\scene_cirlce.cpp" />
     <ClCompile Include="src\Scene_chaikin2.cpp" />
     <ClCompile Include="src\scene_fragment.cpp" />
-    <ClCompile Include="src\scene_vertex.cpp" />
+    <ClCompile Include="src\scene_grid.cpp" />
+    <ClCompile Include="src\scene_sphere.cpp" />
     <ClCompile Include="src\scene_chaikin.cpp" />
     <ClCompile Include="src\scene_nicomedes.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -67,8 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Scene_chaikin2.h" />
+    <ClInclude Include="include\scene_circle.h" />
+    <ClInclude Include="include\scene_cube.h" />
     <ClInclude Include="include\scene_fragment.h" />
-    <ClInclude Include="include\scene_vertex.h" />
+    <ClInclude Include="include\scene_grid.h" />
+    <ClInclude Include="include\scene_sphere.h" />
     <ClInclude Include="include\scene.h" />
     <ClInclude Include="include\scene_compatibility.h" />
     <ClInclude Include="include\scene_manager.h" />
@@ -79,7 +84,12 @@
   <ItemGroup>
     <None Include="shaders\Default.frag" />
     <None Include="shaders\circle.vert" />
+    <None Include="shaders\Default.vert" />
+    <None Include="shaders\sphere.vert" />
     <None Include="shaders\grid.vert" />
+    <None Include="shaders\Intento.vert" />
+    <None Include="shaders\palmtree.frag" />
+    <None Include="shaders\circle_grid.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

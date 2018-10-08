@@ -404,24 +404,24 @@ namespace MathTest
 			Assert::AreEqual(0.0f, cgmath::vec3::dot(c, h), std::numeric_limits<float>::epsilon());
 		}
 
-		//TEST_METHOD(StaticCrossTest)
-		//{
-		//	cgmath::vec3 a(1.0f, 0.0f, 0.0f);
-		//	cgmath::vec3 b(-1.0f, 0.0f, 0.0f);
-		//	cgmath::vec3 c(0.0f, 1.0f, 0.0f);
-		//	cgmath::vec3 d(0.0f, -1.0f, 0.0f);
-		//	cgmath::vec3 e(0.0f, 0.0, 1.0f);
-		//	cgmath::vec3 f(0.0f, 0.0f, -1.0f);
-		//	cgmath::vec3 g;
+		TEST_METHOD(StaticCrossTest)
+		{
+			cgmath::vec3 a(1.0f, 0.0f, 0.0f);
+			cgmath::vec3 b(-1.0f, 0.0f, 0.0f);
+			cgmath::vec3 c(0.0f, 1.0f, 0.0f);
+			cgmath::vec3 d(0.0f, -1.0f, 0.0f);
+			cgmath::vec3 e(0.0f, 0.0, 1.0f);
+			cgmath::vec3 f(0.0f, 0.0f, -1.0f);
+			cgmath::vec3 g;
 
-		//	Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, a));
-		//	Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, b));
-		//	Assert::AreEqual<cgmath::vec3>(e, cgmath::vec3::cross(a, c));
-		//	Assert::AreEqual<cgmath::vec3>(f, cgmath::vec3::cross(a, d));
-		//	Assert::AreEqual<cgmath::vec3>(d, cgmath::vec3::cross(a, e));
-		//	Assert::AreEqual<cgmath::vec3>(c, cgmath::vec3::cross(a, f));
-		//	Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, g));
-		//}
+			Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, a));
+			Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, b));
+			Assert::AreEqual<cgmath::vec3>(e, cgmath::vec3::cross(a, c));
+			Assert::AreEqual<cgmath::vec3>(f, cgmath::vec3::cross(a, d));
+			Assert::AreEqual<cgmath::vec3>(d, cgmath::vec3::cross(a, e));
+			Assert::AreEqual<cgmath::vec3>(c, cgmath::vec3::cross(a, f));
+			Assert::AreEqual<cgmath::vec3>(g, cgmath::vec3::cross(a, g));
+		}
 
 		TEST_METHOD(StreamExtractionTest)
 		{

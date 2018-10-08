@@ -2,11 +2,11 @@
 
 #include "scene.h"
 
-class scene_vertex : public scene
+class scene_sphere : public scene
 {
 	public:
 
-		~scene_vertex();
+		~scene_sphere();
 
 		void init();
 		void awake(); //Configurar escena

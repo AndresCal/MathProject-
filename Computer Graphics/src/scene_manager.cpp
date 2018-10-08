@@ -11,7 +11,10 @@
 #include "scene_nicomedes.h"
 #include "scene_chaikin.h"
 #include "scene_chaikin2.h"
-#include "scene_vertex.h"
+#include "scene_sphere.h"
+#include "scene_grid.h"
+#include "scene_fragment.h"
+#include "scene_circle.h"
 #include "time.h"
 
 std::vector<std::unique_ptr<scene>> scene_manager::sceneList;
@@ -92,17 +95,27 @@ void scene_manager::initialize()
 	//std::unique_ptr<scene> scene2(new scene_primitives); //crea un apuntador a una nueva escena
 	//scenelist.push_back(std::move(scene2));
 
-	std::unique_ptr<scene> scene3(new scene_nicomedes);
-	sceneList.push_back(std::move(scene3));
+	//std::unique_ptr<scene> scene3(new scene_nicomedes);
+	//scenelist.push_back(std::move(scene3));
 
-	std::unique_ptr<scene> scene4(new scene_chaikin);
-	sceneList.push_back(std::move(scene4));
+	//std::unique_ptr<scene> scene4(new scene_chaikin);
+	//scenelist.push_back(std::move(scene4));
 
-	std::unique_ptr<scene> scene5(new scene_chaikin2);
-	sceneList.push_back(std::move(scene5));
+	//std::unique_ptr<scene> scene5(new scene_chaikin2);
+	//scenelist.push_back(std::move(scene5));
 
-	std::unique_ptr<scene> scene6(new scene_vertex);
-	sceneList.push_back(std::move(scene6));
+	std::unique_ptr<scene> scene6(new scene_grid);
+	sceneList.push_back(std::move(scene6)); //Grid 
+
+	std::unique_ptr<scene> scene7(new scene_sphere);
+	sceneList.push_back(std::move(scene7)); //Esfera
+
+	//std::unique_ptr<scene> scene7(new scene_fragment);
+	//sceneList.push_back(std::move(scene7)); //Palmera
+
+	std::unique_ptr<scene> scene9(new scene_circle);
+	sceneList.push_back(std::move(scene9)); //Grid 
+
 
 
 	for (auto& s : sceneList)

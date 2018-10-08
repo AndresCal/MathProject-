@@ -1,85 +1,69 @@
 #pragma once
-#include <iostream>
-#include <math.h>
+#include <string>
 
-namespace cgmath {
-	class vec3 {
+namespace cgmath
+{
+	class vec3
+	{
 	public:
-		float x;
-		float y;
-		float z;
+		float x, y, z;
 
 		vec3();
-
 		vec3(float x, float y, float z);
 
-		float & operator[](int i);
-
-		const float & operator[](int i) const;
-
-		
-
-		const bool operator==(const cgmath::vec3 & v);
-
-		const float magnitude();
-
+		float magnitude() const;
 		void normalize();
 
-		static float magnitude(const cgmath::vec3 & v);
-		static cgmath::vec3 normalize(const cgmath::vec3 & v);
-		static float dot(const cgmath::vec3 & a, const cgmath::vec3 & b);
+		static float magnitude(const vec3& v);
+		static vec3 normalize(const vec3& v);
 
-		static cgmath::vec3 cross(const cgmath::vec3 & a, const cgmath::vec3 & b);
-	
+		float& operator[](int i);
+		const float& operator[](int i) const;
 
-		cgmath::vec3 & operator*=(float s);
-		cgmath::vec3 & operator/=(float s);
-		cgmath::vec3 & operator+=(const cgmath::vec3 & v);
-		cgmath::vec3 & operator-=(const cgmath::vec3 & v);
+		static float dot(const vec3& a, const vec3& b);
+		static vec3 cross(const vec3& a, const vec3& b);
 
-		
+		vec3& operator*=(float s);
+		vec3& operator/=(float s);
+		vec3& operator+=(const vec3& v);
+		vec3& operator-=(const vec3& v);
+		bool operator==(const vec3& v) const;
 
-	
-
-		
-
-		
+		friend std::ostream& operator<<(std::ostream& os, const vec3& v)
+		{
+			os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+			return os;
+		}
 	};
 
-	std::ostream & operator<<(std::ostream & os, const vec3 & v);
+	inline vec3 operator*(const vec3& v, float s)
+	{
+		return vec3(v.x * s, v.y * s, v.z * s);
+	}
 
-};
+	inline vec3 operator*(float s, const vec3& v)
+	{
+		return vec3(v.x * s, v.y * s, v.z * s);
+	}
 
-inline cgmath::vec3 operator *(const cgmath::vec3& v, float s)
-{
-	return cgmath::vec3(v.x * s, v.y * s, v.z * s);
+	inline vec3 operator/(const vec3& v, float s)
+	{
+		s = 1.0f / s;
+		return vec3(v.x * s, v.y * s, v.z * s);
+	}
+
+	inline vec3 operator-(const vec3& v)
+	{
+		return vec3(-v.x, -v.y, -v.z);
+	}
+
+	inline vec3 operator+(const vec3& a, const vec3& b)
+	{
+		return vec3(a.x + b.x, a.y + b.y, a.z + b.z);
+	}
+
+	inline vec3 operator-(const vec3& a, const vec3& b)
+	{
+		return vec3(a.x - b.x, a.y - b.y, a.z - b.z);
+	}
 }
-
-inline cgmath::vec3 operator*(float s, const cgmath::vec3& v)
-{
-	return cgmath::vec3(v.x * s, v.y * s, v.z * s);
-}
-
-inline cgmath::vec3 operator/(const cgmath::vec3& v, float s)
-{
-	return cgmath::vec3(v.x / s, v.y / s,v.z / s);
-}
-
-inline cgmath::vec3 operator+(const cgmath::vec3& a, const cgmath::vec3 b)
-{
-	return cgmath::vec3(a.x + b.x, a.y + b.y, a.z + b.z);
-}
-
-inline cgmath::vec3 operator-(const cgmath::vec3& a, const cgmath::vec3 b)
-{
-	return cgmath::vec3(a.x - b.x, a.y - b.y,a.z - b.z);
-}
-
-inline cgmath::vec3 operator-(const cgmath::vec3& v)
-{
-	return cgmath::vec3(-v.x, -v.y,-v.z);
-}
-
-
-
-
